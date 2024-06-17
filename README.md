@@ -20,7 +20,7 @@ Provide an input file being the encrypted crash logs and it will decrypt and sav
 ## How to update
 If you're interested on how to get the key yourself, heres how I did it:
 
-Their custom engine `DagorEngine` has optional an crashlog encryption, heres a reference to a relevant snippet of their debugging interface [debug.cpp](https://github.com/GaijinEntertainment/DagorEngine/blob/8b340d10814f06aa364e75769d406ec7373c5574/prog/engine/kernel/debug.cpp#L551), the code looks a little bit like this
+Their custom engine `DagorEngine` has optional an crashlog encryption, heres a reference to a relevant snippet of their debugging interface [debug.cpp](https://github.com/GaijinEntertainment/DagorEngine/tree/main/prog/engine/kernel/debug.cpp#L551), the code looks a little bit like this
 
 ```C
 if (last_char_ptr && 
@@ -38,7 +38,7 @@ The highlighted line is important but it also gets inlined since it does such sm
 
 This whole function gets called within the winmain which is where it also acts upon some command line arguments one of them being `copy_log_to_stdout` which comes right after the function call, we can leverage this by searching for that string and checking which function gets called before it.
 
-Heres how the [original code](https://github.com/GaijinEntertainment/DagorEngine/blob/8b340d10814f06aa364e75769d406ec7373c5574/prog/dagorInclude/startup/dag_winMain.inc.cpp#L104) looks:
+Heres how the [original code](https://github.com/GaijinEntertainment/DagorEngine/tree/main/prog/dagorInclude/startup/dag_winMain.inc.cpp#L104) looks:
 
 ```C
 static int dagor_program_exec(int nCmdShow, int debugmode)
